@@ -1,3 +1,8 @@
 body {
     box-sizing: border-box;
+    --background-color: #fdf0d5;
+    --neutral-dark: #3a3335;
+    --neutral-light: #a9ffcb;
+    --primary-one: #eb5e55;
+    --primary-two: #d81e5b;
 }
