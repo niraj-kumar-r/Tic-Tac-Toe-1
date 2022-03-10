@@ -6,9 +6,9 @@ body {
     background-color: #e0e0e0;
     --background-color: #fdf0d5;
     --neutral-dark: #3a3335;
-    --neutral-light: #a9ffcb;
-    --primary-one: #eb5e55;
-    --primary-two: #d81e5b;
+    --neutral-light: #ce225b;
+    --primary-1: #eb5e55;
+    --primary-2: #a9ffcb;
 
     color: var(--neutral-dark);
     min-height: 100vh;
