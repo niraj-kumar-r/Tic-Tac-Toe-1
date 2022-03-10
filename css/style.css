@@ -1,8 +1,49 @@
 body {
     box-sizing: border-box;
+    font-family: "Chivo", sans-serif;
+    /* 400 700 900 */
+
+    background-color: #e0e0e0;
     --background-color: #fdf0d5;
     --neutral-dark: #3a3335;
     --neutral-light: #a9ffcb;
     --primary-one: #eb5e55;
     --primary-two: #d81e5b;
+
+    color: var(--neutral-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    height: clamp(10rem, 80vw, 36rem);
+    aspect-ratio: 1;
+    gap: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.board-piece {
+    border-radius: 26px;
+    background: #e0e0e0;
+    box-shadow: 9px 9px 18px #bebebe, -9px -9px 18px #ffffff;
+
+    border: solid 0rem transparent;
+
+    text-align: center;
+    font-weight: 900;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .board-piece {
+        border-radius: 50px;
+        background: #e0e0e0;
+        box-shadow: 16px 16px 32px #bebebe, -16px -16px 32px #ffffff;
+    }
 }
