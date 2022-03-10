@@ -40,10 +40,21 @@ body {
     align-items: center;
 }
 
+.board-piece-active-1 {
+    border-radius: 26px;
+    background: #eb5e55;
+    box-shadow: 9px 9px 18px #c85048, -9px -9px 18px #ff6c62;
+}
+
 @media screen and (min-width: 768px) {
     .board-piece {
         border-radius: 50px;
         background: #e0e0e0;
         box-shadow: 16px 16px 32px #bebebe, -16px -16px 32px #ffffff;
+    }
+    .board-piece-active-1 {
+        border-radius: 50px;
+        background: #eb5e55;
+        box-shadow: 20px 20px 60px #c85048, -20px -20px 60px #ff6c62;
     }
 }
