@@ -1,7 +1,7 @@
 const board = document.getElementsByClassName("board")[0];
-console.log(board);
+let playerTurn = 1;
 
-board.addEventListener("click", (event) => {
-    console.log(event.target.id);
-    event.target.classList.add("board-piece-active-1");
+board.addEventListener("click", function updateBoardState(event) {
+    event.target.classList.add(`board-piece-active-${playerTurn}`);
+    playerTurn = playerTurn === 1 ? 2 : 1;
 });

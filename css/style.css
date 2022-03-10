@@ -46,6 +46,12 @@ body {
     box-shadow: 9px 9px 18px #c85048, -9px -9px 18px #ff6c62;
 }
 
+.board-piece-active-2 {
+    border-radius: 26px;
+    background: #a9ffcb;
+    box-shadow: 9px 9px 18px #90d9ad, -9px -9px 18px #c2ffe9;
+}
+
 @media screen and (min-width: 768px) {
     .board-piece {
         border-radius: 50px;
@@ -56,5 +62,11 @@ body {
         border-radius: 50px;
         background: #eb5e55;
         box-shadow: 20px 20px 60px #c85048, -20px -20px 60px #ff6c62;
+    }
+
+    .board-piece-active-2 {
+        border-radius: 50px;
+        background: #a9ffcb;
+        box-shadow: 25px 25px 50px #90d9ad, -25px -25px 50px #c2ffe9;
     }
 }
