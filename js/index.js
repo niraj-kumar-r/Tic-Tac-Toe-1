@@ -51,7 +51,7 @@ function winCheck(array, side = 3) {
         }
 
         dia1 += array[i][i];
-        dia2 = +array[j][side - i - 1];
+        dia2 = +array[i][side - i - 1];
 
         sumArray.push(rowSum);
         sumArray.push(colSum);
