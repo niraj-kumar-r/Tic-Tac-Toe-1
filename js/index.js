@@ -9,9 +9,11 @@ let piecesAvailable = ["11", "12", "13", "21", "22", "23", "31", "32", "33"];
 
 const board = document.getElementsByClassName("board")[0];
 
-board.addEventListener("click", function play(event) {
-    let avail = updateBoard(event.target);
-});
+board.addEventListener("click", play);
+
+function play(event) {
+    updateBoard(event.target);
+}
 
 function updateBoard(piece) {
     if (piecesAvailable.includes(piece.id)) {
@@ -26,8 +28,10 @@ function updateBoard(piece) {
 
         if (winState === 1) {
             document.querySelector(".bottom-text").textContent = "Player 1 won";
+            board.removeEventListener("click", play);
         } else if (winState === -1) {
             document.querySelector(".bottom-text").textContent = "Player 2 won";
+            board.removeEventListener("click", play);
         }
 
         playerTurn = playerTurn === 1 ? 2 : 1;
