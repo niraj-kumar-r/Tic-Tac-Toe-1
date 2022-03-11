@@ -1,3 +1,105 @@
 body {
     box-sizing: border-box;
+    font-family: "Chivo", sans-serif;
+    /* 400 700 900 */
+
+    background-color: #e0e0e0;
+    --background-color: #fdf0d5;
+    --neutral-dark: #3a3335;
+    --neutral-light: #ce225b;
+    --primary-1: #eb5e55;
+    --primary-2: #a9ffcb;
+
+    color: var(--neutral-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .restart-button {
+    width: 5rem;
+    height: 3rem;
+
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+} */
+
+.board {
+    height: clamp(10rem, 80vw, 36rem);
+    aspect-ratio: 1;
+    gap: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.board-piece {
+    border-radius: 26px;
+    background: #e0e0e0;
+    box-shadow: 9px 9px 18px #bebebe, -9px -9px 18px #ffffff;
+
+    border: solid 0rem transparent;
+
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-piece-active-1 {
+    border-radius: 26px;
+    background: #eb5e55;
+    box-shadow: 9px 9px 18px #c85048, -9px -9px 18px #ff6c62;
+}
+
+.board-piece-active-2 {
+    border-radius: 26px;
+    background: #a9ffcb;
+    box-shadow: 9px 9px 18px #90d9ad, -9px -9px 18px #c2ffe9;
+}
+
+.bottom-text {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    width: 80vw;
+
+    position: absolute;
+
+    left: 50%;
+    margin: 1rem 0rem 1rem;
+    transform: translateX(-50%);
+}
+
+@media screen and (min-width: 768px) {
+    .board-piece {
+        border-radius: 50px;
+        background: #e0e0e0;
+        box-shadow: 16px 16px 32px #bebebe, -16px -16px 32px #ffffff;
+
+        font-size: 2rem;
+    }
+    .board-piece-active-1 {
+        border-radius: 50px;
+        background: #eb5e55;
+        box-shadow: 20px 20px 60px #c85048, -20px -20px 60px #ff6c62;
+    }
+
+    .board-piece-active-2 {
+        border-radius: 50px;
+        background: #a9ffcb;
+        box-shadow: 25px 25px 50px #90d9ad, -25px -25px 50px #c2ffe9;
+    }
+
+    .bottom-text {
+        font-size: 11rem;
+        margin: 0;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
 }
