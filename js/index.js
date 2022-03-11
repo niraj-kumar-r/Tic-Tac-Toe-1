@@ -25,9 +25,9 @@ function updateBoard(piece) {
         let winState = winCheck(boardArray);
 
         if (winState === 1) {
-            document.querySelector("bottom-text").textContent = "Player 1 won";
+            document.querySelector(".bottom-text").textContent = "Player 1 won";
         } else if (winState === -1) {
-            document.querySelector("bottom-text").textContent = "Player 2 won";
+            document.querySelector(".bottom-text").textContent = "Player 2 won";
         }
 
         playerTurn = playerTurn === 1 ? 2 : 1;
