@@ -10,8 +10,7 @@ This is a repository for my tic tac toe game.
     -   [Links](#links)
 -   [My process](#my-process)
     -   [Built with](#built-with)
-    -   [What I learned](#what-i-learned)
-    -   [Useful resources](#useful-resources)
+    -   [Continued Development](#continued-development)
 -   [Author](#author)
 
 ## Overview
@@ -21,10 +20,9 @@ This is a repository for my tic tac toe game.
 Users should be able to:
 
 -   View the optimal layout for the site depending on their device's screen size
--   See hover states for all interactive elements on the page
--   Receive an error message when the `form` is submitted if:
-    -   The `input` field is empty
-    -   The email address is not formatted correctly
+-   Interact with the Board via clicking on the button
+-   Change turns automatically one after another
+-   Get results based on thier performance
 
 ### Screenshot
 
@@ -33,8 +31,7 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [Check My Solution on Frontend Mentor](https://www.frontendmentor.io/solutions/first-time-validating-a-form-with-consatraint-validation-api-PQOHTNlVp#comment-6228e065f54ba2795707303f)
--   Live Site URL: [Base Apparel](https://niraj-base-apparel.netlify.app/)
+-   Live Site URL: [Tic Tac Toe](https://niraj-tic-tac-toe.netlify.app/)
 
 ## My process
 
@@ -44,15 +41,13 @@ Users should be able to:
 -   CSS custom properties
 -   CSS Grid
 -   Mobile-first workflow
--   Constraint Validation API
+-   Javascript
 
-### What I learned
+### Continued Development
 
--   Learned about form validation with HTML5 constraints as well as the Constraint Validation API built-in in most browsers.
-
-### Useful resources
-
--   [Client Side Validation - By MDN](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) - This page by MDN is probably the best resource available online for this project.
+-   Will add a replay button later.
+-   Will transfer all of the functionality of my high school python project in this project, including but not limited to, a computer algorithm as an opponent, a profile feature, ranked games, etc.
+-   Will definitely work on a 3D tic tac toe game sometime in the future.
 
 ## Author
 
