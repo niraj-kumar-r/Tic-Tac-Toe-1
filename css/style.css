@@ -54,11 +54,14 @@ body {
 
 .bottom-text {
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
+    width: 80vw;
 
     position: absolute;
+
     left: 50%;
+    margin: 1rem 0rem 1rem;
     transform: translateX(-50%);
 }
 
@@ -80,5 +83,12 @@ body {
         border-radius: 50px;
         background: #a9ffcb;
         box-shadow: 25px 25px 50px #90d9ad, -25px -25px 50px #c2ffe9;
+    }
+
+    .bottom-text {
+        font-size: 11rem;
+        margin: 0;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
     }
 }

@@ -27,14 +27,19 @@ function updateBoard(piece) {
         let winState = winCheck(boardArray);
 
         if (winState === 1) {
-            document.querySelector(".bottom-text").textContent = "Player 1 won";
+            document.querySelector(".bottom-text").textContent =
+                "Player Red won";
             board.removeEventListener("click", play);
+            board.style.opacity = 0.3;
         } else if (winState === -1) {
-            document.querySelector(".bottom-text").textContent = "Player 2 won";
+            document.querySelector(".bottom-text").textContent =
+                "Player Green won";
             board.removeEventListener("click", play);
+            board.style.opacity = 0.3;
         } else if (piecesAvailable.length === 0) {
             document.querySelector(".bottom-text").textContent = "Tie";
             board.removeEventListener("click", play);
+            board.style.opacity = 0.3;
         }
 
         playerTurn = playerTurn === 1 ? 2 : 1;
