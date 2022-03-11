@@ -16,9 +16,14 @@ board.addEventListener("click", function play(event) {
 function updateBoard(piece) {
     if (piecesAvailable.includes(piece.id)) {
         piecesAvailable = piecesAvailable.filter((a) => a !== piece.id);
-        console.log(piecesAvailable);
 
+        boardArray[Number(piece.id[0]) - 1][Number(piece.id[1]) - 1] =
+            playerTurn === 1 ? 1 : -1;
+
+        if (winCheck(boardArray)) {
+        }
         piece.classList.add(`board-piece-active-${playerTurn}`);
+
         playerTurn = playerTurn === 1 ? 2 : 1;
     } else if (!piecesAvailable.includes(piece.id)) {
         console.log("Place Occupied");
