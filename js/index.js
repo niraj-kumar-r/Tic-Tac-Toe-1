@@ -27,19 +27,11 @@ function updateBoard(piece) {
         let winState = winCheck(boardArray);
 
         if (winState === 1) {
-            document.querySelector(".bottom-text").textContent =
-                "Player Red won";
-            board.removeEventListener("click", play);
-            board.style.opacity = 0.3;
+            showResult("Player Red won");
         } else if (winState === -1) {
-            document.querySelector(".bottom-text").textContent =
-                "Player Green won";
-            board.removeEventListener("click", play);
-            board.style.opacity = 0.3;
+            showResult("Player Green won");
         } else if (piecesAvailable.length === 0) {
-            document.querySelector(".bottom-text").textContent = "Tie";
-            board.removeEventListener("click", play);
-            board.style.opacity = 0.3;
+            showResult("Tie");
         }
 
         playerTurn = playerTurn === 1 ? 2 : 1;
@@ -81,4 +73,11 @@ function winCheck(array, side = 3) {
     } else {
         return 0;
     }
+}
+
+function showResult(result) {
+    document.querySelector(".bottom-text").textContent = result;
+    document.querySelector(".bottom-text").style.display = "block";
+    board.removeEventListener("click", play);
+    board.style.opacity = 0.3;
 }

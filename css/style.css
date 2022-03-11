@@ -17,6 +17,17 @@ body {
     align-items: center;
 }
 
+/* .restart-button {
+    width: 5rem;
+    height: 3rem;
+
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+} */
+
 .board {
     height: clamp(10rem, 80vw, 36rem);
     aspect-ratio: 1;
@@ -53,6 +64,7 @@ body {
 }
 
 .bottom-text {
+    display: none;
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
