@@ -32,6 +32,9 @@ function updateBoard(piece) {
         } else if (winState === -1) {
             document.querySelector(".bottom-text").textContent = "Player 2 won";
             board.removeEventListener("click", play);
+        } else if (piecesAvailable.length === 0) {
+            document.querySelector(".bottom-text").textContent = "Tie";
+            board.removeEventListener("click", play);
         }
 
         playerTurn = playerTurn === 1 ? 2 : 1;
