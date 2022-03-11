@@ -77,7 +77,6 @@ function winCheck(array, side = 3) {
 
 function showResult(result) {
     document.querySelector(".bottom-text").textContent = result;
-    document.querySelector(".bottom-text").style.display = "block";
     board.removeEventListener("click", play);
     board.style.opacity = 0.3;
 }
