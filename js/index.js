@@ -1,4 +1,5 @@
 let playerTurn = 1;
+let singlePlayer = true;
 
 let boardArray = [
     [0, 0, 0],
@@ -12,7 +13,13 @@ const board = document.getElementsByClassName("board")[0];
 board.addEventListener("click", play);
 
 function play(event) {
-    updateBoard(event.target);
+    console.log(compAlgo(boardArray));
+    // if (singlePlayer) {
+    //     updateBoard(event.target);
+    //     updateBoard(compAlgo(boardArray));
+    // } else {
+    //     updateBoard(event.target);
+    // }
 }
 
 function updateBoard(piece) {
@@ -79,4 +86,37 @@ function showResult(result) {
     document.querySelector(".bottom-text").textContent = result;
     board.removeEventListener("click", play);
     board.style.opacity = 0.3;
+}
+
+function compAlgo(array, side = 3) {
+    const newArray = array.slice();
+    const actualValue = playerTurn === 1 ? 1 : -1;
+
+    for (let id in piecesAvailable) {
+        newArray[Number(id[0])][Number(id[1])] = actualValue;
+        let winStateTemp = winCheck(newArray, side);
+        newArray[Number(id[0])][Number(id[1])] = 0;
+        if (actualValue === winStateTemp) {
+            console.log(document.getElementById(`$(id)`));
+            return document.getElementById(`$(id)`);
+        }
+    }
+
+    for (let id in piecesAvailable) {
+        newArray[Number(id[0])][Number(id[1])] = -actualValue;
+        let winStateTemp = winCheck(newArray, side);
+        newArray[Number(id[0])][Number(id[1])] = 0;
+        if (actualValue === -winStateTemp) {
+            console.log(document.getElementById(`$(id)`));
+            return document.getElementById(`$(id)`);
+        }
+    }
+
+    if (piecesAvailable.includes("22")) {
+        return document.getElementById("22");
+    } else {
+        return document.getElementById(
+            piecesAvailable[Math.floor(Math.random * piecesAvailable.length)]
+        );
+    }
 }
