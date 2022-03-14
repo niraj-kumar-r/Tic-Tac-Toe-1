@@ -1,5 +1,5 @@
 let playerTurn = 1;
-let singlePlayer = true;
+let singlePlayer = false;
 
 let boardArray = [
     [0, 0, 0],
@@ -64,7 +64,7 @@ function winCheck(array, side = 3) {
         }
 
         dia1 += array[i][i];
-        dia2 = +array[i][side - i - 1];
+        dia2 += array[i][side - i - 1];
 
         sumArray.push(rowSum);
         sumArray.push(colSum);
