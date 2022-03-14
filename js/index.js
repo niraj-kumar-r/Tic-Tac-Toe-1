@@ -24,7 +24,7 @@ function playSinglePlayer(event) {
     if (piecesAvailable.includes(event.target.id)) {
         updateBoard(event.target);
         if (piecesAvailable.length !== 0) {
-            updateBoard(compAlgo(boardArray));
+            setTimeout(updateBoard, 200, compAlgo(boardArray));
         }
     }
 }
