@@ -61,6 +61,12 @@ function updateBoard(piece) {
     playerTurn = playerTurn === 1 ? 2 : 1;
 }
 
+/**
+ *
+ * @param {Array} array boardArray : array of arrays
+ * @param {Number} side length of the board in terms oh number of pieces on one side for rg 3,4,etc.
+ * @returns 1 if player-1 wins, -1 if player-2 wins, 0 if tie
+ */
 function winCheck(array, side = 3) {
     const sumArray = [];
     let dia1 = 0;
