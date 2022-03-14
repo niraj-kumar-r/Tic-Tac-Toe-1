@@ -13,13 +13,15 @@ const board = document.getElementsByClassName("board")[0];
 board.addEventListener("click", play);
 
 function play(event) {
-    console.log(compAlgo(boardArray));
-    // if (singlePlayer) {
-    //     updateBoard(event.target);
-    //     updateBoard(compAlgo(boardArray));
-    // } else {
-    //     updateBoard(event.target);
-    // }
+    if (singlePlayer) {
+        console.log("you choose", event.target);
+        updateBoard(event.target);
+        let i = compAlgo(boardArray);
+        console.log("comp choose", i);
+        updateBoard(i);
+    } else {
+        updateBoard(event.target);
+    }
 }
 
 function updateBoard(piece) {
@@ -92,31 +94,35 @@ function compAlgo(array, side = 3) {
     const newArray = array.slice();
     const actualValue = playerTurn === 1 ? 1 : -1;
 
-    for (let id in piecesAvailable) {
-        newArray[Number(id[0])][Number(id[1])] = actualValue;
+    for (let id of piecesAvailable) {
+        // checking where I am winning
+        newArray[Number(id[0] - 1)][Number(id[1] - 1)] = actualValue;
         let winStateTemp = winCheck(newArray, side);
-        newArray[Number(id[0])][Number(id[1])] = 0;
+        newArray[Number(id[0] - 1)][Number(id[1] - 1)] = 0;
+
         if (actualValue === winStateTemp) {
-            console.log(document.getElementById(`$(id)`));
-            return document.getElementById(`$(id)`);
+            return document.getElementById(id);
         }
     }
 
-    for (let id in piecesAvailable) {
-        newArray[Number(id[0])][Number(id[1])] = -actualValue;
+    for (let id of piecesAvailable) {
+        // checking where the opponent is winning
+        newArray[Number(id[0] - 1)][Number(id[1] - 1)] = -actualValue;
         let winStateTemp = winCheck(newArray, side);
-        newArray[Number(id[0])][Number(id[1])] = 0;
-        if (actualValue === -winStateTemp) {
-            console.log(document.getElementById(`$(id)`));
-            return document.getElementById(`$(id)`);
+        newArray[Number(id[0] - 1)][Number(id[1] - 1)] = 0;
+        if (winStateTemp === -actualValue) {
+            return document.getElementById(id);
         }
     }
 
     if (piecesAvailable.includes("22")) {
         return document.getElementById("22");
     } else {
-        return document.getElementById(
-            piecesAvailable[Math.floor(Math.random * piecesAvailable.length)]
-        );
+        let randomId =
+            piecesAvailable[
+                Math.floor(Math.random() * (piecesAvailable.length - 1))
+            ];
+
+        return document.getElementById(randomId);
     }
 }
