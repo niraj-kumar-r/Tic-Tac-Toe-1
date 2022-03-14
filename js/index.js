@@ -1,5 +1,5 @@
 let playerTurn = 1;
-let singlePlayer = true;
+let singlePlayerBool = true;
 
 let boardArray = [
     [0, 0, 0],
@@ -13,10 +13,10 @@ const board = document.getElementsByClassName("board")[0];
 board.addEventListener("click", play);
 
 function play(event) {
-    if (singlePlayer) {
+    if (singlePlayerBool) {
         playSinglePlayer(event);
     } else {
-        playTwoPlayer();
+        playTwoPlayer(event);
     }
 }
 
@@ -35,6 +35,11 @@ function playTwoPlayer(event) {
     }
 }
 
+/** Takes a piece, and updates the board to reflect peice bieng pressed and also calls showResult
+ * function is one of the three end states are met
+ *
+ * @param {*} piece The DOM element i.e. the piece that need to be updated
+ */
 function updateBoard(piece) {
     piecesAvailable = piecesAvailable.filter((a) => a !== piece.id);
 
