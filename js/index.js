@@ -1,5 +1,5 @@
 let playerTurn = 1;
-let singlePlayer = false;
+let singlePlayer = true;
 
 let boardArray = [
     [0, 0, 0],
@@ -45,7 +45,7 @@ function updateBoard(piece) {
 
         playerTurn = playerTurn === 1 ? 2 : 1;
     } else if (!piecesAvailable.includes(piece.id)) {
-        console.log("Place Occupied");
+        // pass
     }
 }
 
