@@ -14,39 +14,46 @@ board.addEventListener("click", play);
 
 function play(event) {
     if (singlePlayer) {
-        console.log("you choose", event.target);
-        updateBoard(event.target);
-        let i = compAlgo(boardArray);
-        console.log("comp choose", i);
-        updateBoard(i);
+        playSinglePlayer(event);
     } else {
+        playTwoPlayer();
+    }
+}
+
+function playSinglePlayer(event) {
+    if (piecesAvailable.includes(event.target.id)) {
+        updateBoard(event.target);
+        if (piecesAvailable.length !== 0) {
+            updateBoard(compAlgo(boardArray));
+        }
+    }
+}
+
+function playTwoPlayer(event) {
+    if (piecesAvailable.includes(event.target.id)) {
         updateBoard(event.target);
     }
 }
 
 function updateBoard(piece) {
-    if (piecesAvailable.includes(piece.id)) {
-        piecesAvailable = piecesAvailable.filter((a) => a !== piece.id);
+    piecesAvailable = piecesAvailable.filter((a) => a !== piece.id);
 
-        boardArray[Number(piece.id[0]) - 1][Number(piece.id[1]) - 1] =
-            playerTurn === 1 ? 1 : -1;
+    boardArray[Number(piece.id[0]) - 1][Number(piece.id[1]) - 1] =
+        playerTurn === 1 ? 1 : -1;
 
-        piece.classList.add(`board-piece-active-${playerTurn}`);
+    piece.classList.add(`board-piece-active-${playerTurn}`);
 
-        let winState = winCheck(boardArray);
+    let winState = winCheck(boardArray);
 
-        if (winState === 1) {
-            showResult("Player Red won");
-        } else if (winState === -1) {
-            showResult("Player Green won");
-        } else if (piecesAvailable.length === 0) {
-            showResult("Tie");
-        }
-
-        playerTurn = playerTurn === 1 ? 2 : 1;
-    } else if (!piecesAvailable.includes(piece.id)) {
-        // pass
+    if (winState === 1) {
+        showResult("Player Red won");
+    } else if (winState === -1) {
+        showResult("Player Green won");
+    } else if (piecesAvailable.length === 0) {
+        showResult("Tie");
     }
+
+    playerTurn = playerTurn === 1 ? 2 : 1;
 }
 
 function winCheck(array, side = 3) {
@@ -90,6 +97,14 @@ function showResult(result) {
     board.style.opacity = 0.3;
 }
 
+/**
+ * returns an available piece on the board according to algorithm
+ *
+ * @param {Array} array is the array representation of the current board state as an array of arrays
+ * @param {Number} side is the number of pieces on one side of the board, like 3,4,5,etc.
+ *
+ * returns the piece chosen by the algorithm by document.getElementById(id)
+ */
 function compAlgo(array, side = 3) {
     const newArray = array.slice();
     const actualValue = playerTurn === 1 ? 1 : -1;
@@ -119,9 +134,7 @@ function compAlgo(array, side = 3) {
         return document.getElementById("22");
     } else {
         let randomId =
-            piecesAvailable[
-                Math.floor(Math.random() * (piecesAvailable.length - 1))
-            ];
+            piecesAvailable[Math.floor(Math.random() * piecesAvailable.length)];
 
         return document.getElementById(randomId);
     }
